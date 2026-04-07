@@ -1,0 +1,33 @@
+import { Body, Controller, Get, Param, Post, Request, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+import { TransactionService, SendTransferDto } from './transaction.service';
+import { IsOptional, IsString } from 'class-validator';
+
+class SendDto implements SendTransferDto {
+  @IsString() destinationPublicKey: string;
+  @IsString() amount: string;
+  @IsString() assetCode: string;
+  @IsOptional() @IsString() assetIssuer?: string;
+  @IsOptional() @IsString() memo?: string;
+}
+
+@UseGuards(AuthGuard('jwt'))
+@Controller('transactions')
+export class TransactionController {
+  constructor(private txService: TransactionService) {}
+
+  @Post('send')
+  send(@Request() req: any, @Body() dto: SendDto) {
+    return this.txService.sendTransfer(req.user.userId, dto);
+  }
+
+  @Get('history')
+  history(@Request() req: any) {
+    return this.txService.getHistory(req.user.userId);
+  }
+
+  @Get(':id')
+  get(@Param('id') id: string) {
+    return this.txService.getTransaction(id);
+  }
+}

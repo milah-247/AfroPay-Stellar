@@ -1,0 +1,23 @@
+# Dependencies
+**/node_modules/
+
+# Build outputs
+dist/
+.next/
+build/
+**/target/
+
+# Environment
+.env
+*.env.local
+
+# Python
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+.pytest_cache/
+**/.pytest_cache/
+
+# Misc
+*.log
+.DS_Store
