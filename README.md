@@ -7,7 +7,7 @@ It provides fast, low-cost, and secure global money transfers, with a focus on A
 
 ## Overview
 
-RemitX simplifies international money transfers by leveraging blockchain technology:
+AfroPay-Stellar simplifies international money transfers by leveraging blockchain technology:
 
 - Near-instant transactions (3–5 seconds)
 - Low transaction fees
@@ -18,7 +18,7 @@ RemitX simplifies international money transfers by leveraging blockchain technol
 
 ## Architecture
 
-RemitX is structured as a **polyglot microservices architecture**:
+AfroPay-Stellar is structured as a **polyglot microservices architecture**:
 Client (Next.js)
 ↓
 API Gateway (NestJS - TypeScript)
